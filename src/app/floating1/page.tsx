@@ -13,7 +13,7 @@ function randomXaxis(){
     return Math.random() * 80;
 }
 
-const AnimationPage: React.FC = () => {
+const Page: React.FC = () => {
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ const AnimationPage: React.FC = () => {
   );
 };
 
-export default AnimationPage;
+export default Page;

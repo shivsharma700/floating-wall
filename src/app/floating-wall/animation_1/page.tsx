@@ -4,19 +4,59 @@ import './animation_1.css'
 const page = () => {
   return (
     <div>
-      <div className="title">Lamp Animation</div>
+      <img src="/assets/bg.png" className='h-screen w-screen' alt="" />
       <div className="main-area">
         <div className="circles">
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
-          <div><img src="https://media.istockphoto.com/id/1281794049/vector/sky-lantern.jpg?s=612x612&w=0&k=20&c=IG-ZXSS7wgGVqOoUyy3rVFjfDuSNi0zQ2druAAqHwMs=" alt="" /></div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp1.png" alt="" />
+            <p className=' text-lg'>TANVI</p>
+            <p className=' text-xs'>Good Vibes</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>APOORVA</p>
+            <p className=' text-xs'>Feel Good</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>BINDU</p>
+            <p className=' text-xs'>It's Litt</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp1.png" alt="" />
+            <p className=' text-lg'>TANVI</p>
+            <p className=' text-xs'>Good Vibes</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>APOORVA</p>
+            <p className=' text-xs'>Feel Good</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>BINDU</p>
+            <p className=' text-xs'>It's Litt</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp1.png" alt="" />
+            <p className=' text-lg'>TANVI</p>
+            <p className=' text-xs'>Good Vibes</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>APOORVA</p>
+            <p className=' text-xs'>Feel Good</p>
+            </div>
+          <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp2.png" alt="" />
+            <p className=' text-lg'>BINDU</p>
+            <p className=' text-xs'>It's Litt</p>
+            </div>
+            <div className='bg-transparent flex justify-center items-center flex-col gap-y-2'>
+            <img className='absolute -z-10 -top-4 right-2' src="/assets/lamp1.png" alt="" />
+            <p className=' text-lg'>TANVI</p>
+            <p className=' text-xs'>Good Vibes</p>
+            </div>
         </div>
       </div>
     </div>

@@ -48,11 +48,13 @@ const Page: React.FC = () => {
     <div className="flex justify-center items-center h-screen bg-cover bg-[url('/assets/bg.png')] relative overflow-hidden">
       <div
         ref={divRef}
-        className="absolute text-white bottom-[-40vh]  flex flex-col justify-center items-center bg-cover h-[20rem] w-[16rem] "
+        className="absolute text-white bottom-[-40vh]  flex flex-col justify-center items-center bg-cover h-[16rem] w-[13rem] "
         style={{ backgroundImage: `url(${lampImages[0]})`, left: `${randomXaxis()}vw` }}
       >
-        <div className=" text-lg font-bold">NAME</div>
-        <div >message</div>
+        <div className=' mb-8 flex flex-col justify-center items-center' >
+          <div className=" tracking-wider text-2xl font-bold">TANVI</div>
+          <div className='text-lg   ' >Good Vibes</div>
+        </div>
       </div>
     </div>
   );

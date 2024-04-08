@@ -11,7 +11,7 @@ const socket = io("https://mosaic-api.gokapturehub.com", {
 
 const Page: React.FC = () => {
   const [lamps, setLamps] = useState<any>([]);
-  const [showWelcome, setShowWelcome] = useState(true); // State to control the visibility of welcome image
+  const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
     socket.on("connect", () => {
@@ -21,21 +21,18 @@ const Page: React.FC = () => {
       setLamps((prevLamps: any) => [...prevLamps, data]);
     });
 
-    // Event listener to handle "R" key press
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === "r") {
-        setShowWelcome(true); // Show welcome image
+      if (event.key === "r" && !showWelcome) {
+        setShowWelcome(true);
       }
     };
 
-    // Add event listener
     document.addEventListener("keypress", handleKeyPress);
 
-    // Cleanup function
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, []);
+  }, [showWelcome]);
 
   useEffect(() => {
     const getLamps = async () => {
@@ -61,19 +58,17 @@ const Page: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Animation to hide welcome image after 3 seconds
     if (showWelcome) {
-      gsap.to(".welcome", { opacity: 0, duration: 10, onComplete: () => setShowWelcome(false) });
+      gsap.fromTo(".welcome", { y: "95%" }, { y: "0%", duration: 5, ease: "power3.out" });
     }
   }, [showWelcome]);
 
   return (
     <div className="flex justify-center items-center h-screen bg-cover bg-[url('/assets/bg.png')] relative overflow-hidden">
-      {/* Conditional rendering of welcome image */}
       {showWelcome && (
-        <img src={welcome.src} className="welcome" alt="Welcome" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 9999 }} />
+        <img src={welcome.src} className="welcome" alt="Welcome" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '100%', zIndex: 9999 }} />
       )}
-      {lamps.map((lamp: any, i: number) => (
+      {!showWelcome && lamps.map((lamp: any, i: number) => (
         <Lamp key={i} feedback={lamp.feedback} name={lamp.name} />
       ))}
     </div>

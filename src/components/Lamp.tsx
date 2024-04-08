@@ -5,6 +5,7 @@ const lampImages = [
   "/assets/lamp1.png",
   "/assets/lamp2.png",
   "/assets/lamp3.png",
+  "/assets/lamp4.png",
 ];
 
 function randomXaxis() {

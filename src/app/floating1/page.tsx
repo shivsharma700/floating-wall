@@ -1,61 +1,32 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import Lamp from "@/components/Lamp";
+import { useEffect, useState } from "react";
+import io from "socket.io-client";
+import axios from "axios";
 
-const lampImages = [
-  '/assets/lamp1.png',
-  '/assets/lamp2.png',
-  '/assets/lamp3.png'
-];
-
-function randomXaxis(){
-    return Math.random() * 80;
-}
+const socket = io("https://mosaic-api.gokapturehub.com", {
+  transports: ["websocket"],
+});
 
 const Page: React.FC = () => {
-  const divRef = useRef<HTMLDivElement>(null);
-
+  const [lamps, setLamps] = useState<any>([]);
   useEffect(() => {
-    if (!divRef.current) return;
-
-    const floatingDiv = divRef.current;
-
-    const animateDiv = () => {
-      const tl = gsap.timeline({ repeat: 0 });
-
-      tl.to(floatingDiv, {
-        css: { top: '-44%', left: () => `${randomXaxis()}vw` },
-        duration: 15,
-        ease: 'none',
-        onStart: () => {
-          const randomIndex = Math.floor(Math.random() * lampImages.length);
-          floatingDiv.style.backgroundImage = `url(${lampImages[randomIndex]})`;
-        }
-      })
-
-      return () => {
-        tl.kill();
-      };
+    const getLamps = async () => {
+      const res = await axios.get("https://api.gokapturehub.com/wall-test");
+      setLamps(res.data.data);
     };
-
-    const animation = animateDiv();
-
-    return () => animation();
+    getLamps();
+    socket.on("wall", (data: any) => {
+      setLamps((e: any) => [...e, data]);
+    });
   }, []);
 
   return (
     <div className="flex justify-center items-center h-screen bg-cover bg-[url('/assets/bg.png')] relative overflow-hidden">
-      <div
-        ref={divRef}
-        className="absolute text-white bottom-[-40vh]  flex flex-col justify-center items-center bg-cover h-[16rem] w-[13rem] "
-        style={{ backgroundImage: `url(${lampImages[0]})`, left: `${randomXaxis()}vw` }}
-      >
-        <div className=' mb-8 flex flex-col justify-center items-center' >
-          <div className=" tracking-wider text-2xl font-bold">TANVI</div>
-          <div className='text-lg   ' >Good Vibes</div>
-        </div>
-      </div>
+      {lamps.map((lamp: any, i: number) => (
+        <Lamp key={i} feedback={lamp.feedback} name={lamp.name} />
+      ))}
     </div>
   );
 };

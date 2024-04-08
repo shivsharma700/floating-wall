@@ -59,7 +59,7 @@ const Page: React.FC = () => {
 
   useEffect(() => {
     if (showWelcome) {
-      gsap.fromTo(".welcome", { y: "95%" }, { y: "0%", duration: 5, ease: "power3.out" });
+      gsap.fromTo(".welcome", { y: "100%" }, { y: "0%", duration: 5, ease: "power3.out" });
     }
   }, [showWelcome]);
 

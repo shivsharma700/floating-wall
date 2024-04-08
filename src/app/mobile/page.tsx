@@ -43,6 +43,18 @@ export default function Mobile() {
       console.log("error");
       return;
     }
+
+    if (formData.feedback.length > 15) {
+      toast.warning("Feedback is too long");
+      return;
+    }
+
+    if (formData.name.length > 10) {
+      toast.warning("Name is required");
+      console.log("error");
+      return;
+    }
+
     socket.emit("wall", formData);
     toast.success("form submited");
     setFormData({

@@ -13,8 +13,6 @@ const socket = io("https://mosaic-api.gokapturehub.com", {
   transports: ["websocket"],
 });
 
-
-
 interface FormDataTypes {
     name: string;
     feedback:string;
@@ -35,7 +33,7 @@ export default function Mobile() {
     }
 
     const handleSubmit = async () => {
-        if (formData.name.length === 0) {
+        if (formData.name.length === 0) {   
             toast.warning('name is  required');
             console.log("error");
             return

@@ -29,8 +29,18 @@ export default function Mobile() {
     name: "",
     feedback: "",
   });
+  let maxLength = {
+    name:10,
+    feedback:20,
+  }
 
-  function handleOnChange(key: string, value: string | boolean | string[]) {
+  function handleOnChange(key: string, value:string) {
+    if(value.length > maxLength.feedback && key == "feedback"){
+      return;
+    }
+    if(value.length > maxLength.name && key == "name"){
+      return;
+    }
     setFormData((prev) => ({
       ...prev,
       [key]: value,
@@ -38,20 +48,8 @@ export default function Mobile() {
   }
 
   const handleSubmit = async () => {
-    if (formData.name.length === 0) {
-      toast.warning("name is  required");
-      console.log("error");
-      return;
-    }
-
-    if (formData.feedback.length > 15) {
-      toast.warning("Feedback is too long");
-      return;
-    }
-
-    if (formData.name.length > 10) {
-      toast.warning("Name is required");
-      console.log("error");
+    if (formData.name.length === 0 && formData.feedback.length === 0) {
+      toast.warning("All fields are required");
       return;
     }
 
@@ -85,6 +83,7 @@ export default function Mobile() {
                 value={formData.name}
                 onChange={(e) => handleOnChange("name", e.target.value)}
               />
+              <span className="text-xs text-end w-full block m-1 ml-0">{formData.name.length}/{maxLength.name}</span>
             </div>
             <div>
               <Label>
@@ -95,11 +94,12 @@ export default function Mobile() {
                 value={formData.feedback}
                 onChange={(e) => handleOnChange("feedback", e.target.value)}
               />
+                <span className="text-xs text-end w-full block m-1 ml-0">{formData.feedback.length}/{maxLength.feedback}</span>
             </div>
           </section>
           {/* content goes here */}
-          <CardFooter className="flex flex-row items-center justify-end gap-2 pt-2">
-            <Button onClick={handleSubmit}>Send Message</Button>
+          <CardFooter className="flex flex-row items-center justify-end gap-2 py-2">
+            <Button onClick={handleSubmit}>Send feedback</Button>
           </CardFooter>
         </CardContent>
       </Card>
